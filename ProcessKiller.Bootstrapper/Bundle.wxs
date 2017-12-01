@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
+     xmlns:bal="http://schemas.microsoft.com/wix/BalExtension"
+     xmlns:dep="http://schemas.microsoft.com/wix/DependencyExtension"
+     xmlns:netfx="http://schemas.microsoft.com/wix/WixNetFxExtension">
+
+  <Bundle Copyright="Copyright© 2017" Name="ProcessKiller.Bootstrapper" Version="1.0.0.0" Manufacturer="EAE Technology" UpgradeCode="AF74260F-7C0A-466C-A7F0-D3D2751700E6">
+    <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.HyperlinkLicense">
+      <bal:WixStandardBootstrapperApplication
+          LicenseUrl=""
+          SuppressOptionsUI="yes"
+          xmlns:bal="http://schemas.microsoft.com/wix/BalExtension" />
+    </BootstrapperApplicationRef>
+
+    <!-- Operating System Version -->
+    <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Microsoft\Windows NT\CurrentVersion" Value="EditionID"  Variable="Edition"  Win64="yes" />
+    <!-- +++++++++++++++ -->
+
+    <!-- Registry search below holds if .NET Framework 3.5 Version Information(x86) -->
+    <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Microsoft\Net Framework Setup\NDP\v3.5" Value="Version" Variable="Netfx3x86FullVersion"   />
+    <!-- +++++++++++++++ -->
+
+    <!-- Registry search below holds if .NET Framework 3.5 Version Information(x64) -->
+    <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Microsoft\Net Framework Setup\NDP\v3.5" Value="Version" Variable="Netfx3x64FullVersion" Win64="yes" />
+    <!-- +++++++++++++++ -->
+
+    <!-- Registry search below holds if .NET Framework 4 Version Information(x86) -->
+    <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Microsoft\Net Framework Setup\NDP\v4\Full" Value="Version" Variable="Netfx4x86FullVersion"   />
+    <!-- +++++++++++++++ -->
+
+    <!-- Registry search below holds if .NET Framework 4 Version Information(x64) -->
+    <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Microsoft\Net Framework Setup\NDP\v4\Full" Value="Version" Variable="Netfx4x64FullVersion" Win64="yes" />
+
+    <Chain DisableRollback="no" DisableSystemRestore="no" ParallelCache="no">
+
+      <!-- .NET Framework Installation for Windows 7, 8, 8.1 & 10 -->
+      <!--<PackageGroupRef Id="Netfx354045" />-->
+      <!--+++++++++++++++++++++++++++++++++-->
+
+      <MsiPackage Id="ProcessKiller.App" SourceFile="..\ProcessKiller.Setup\bin\Release\ProcessKiller.Setup.msi" DisplayName="Configuring ProcessKiller Application"  Compressed="yes" />
+
+      <MsiPackage Id="ProcessKiller.Svc" SourceFile="..\ProcessKiller.Service.Setup\bin\Release\ProcessKiller.Service.Setup.msi" DisplayName="Configuring ProcessKiller Window Service" Compressed="yes" After="ProcessKiller.App" />
+
+    </Chain>
+  </Bundle>
+
+  <!-- ++++++++++++++++++++++++++++++++++++++++  Properties  ++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+  <Fragment>
+    <Property Id="WINEDITION">
+      <RegistrySearch Id="MyRegistrySearch"
+      Root="HKLM"
+      Key="SOFTWARE\Microsoft\Windows NT\CurrentVersion"
+      Name="InstallationType"
+      Type="raw" />
+    </Property>
+  </Fragment>
+  <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+  <Fragment>
+    <!-- +++++++++++++ .NET Framework for Window 7, 8, 8.1 & 10 ++++++++++++++++  -->
+    <PackageGroup Id="Netfx354045">
+      <ExePackage Id="Netfx35"
+        Cache="no"
+        Compressed="yes"
+        PerMachine="no"
+        Permanent="yes"
+        Vital="yes"
+        Name="Redist\dotnetfx35.exe"
+        DisplayName="Configuring .NET Framework 3.5"
+        SourceFile="Tools\dotnetfx35.exe"
+        InstallCommand="/q /norestart /lang:ENU"
+        RepairCommand="/q /norestart /lang:ENU"
+        InstallCondition='(NOT Netfx3x64FullVersion AND WINEDITION = "Client" AND VersionNT=601) OR (Netfx3x64FullVersion &lt;= v3.5.30729.1 AND WINEDITION = "Client" AND VersionNT=601)'
+        DetectCondition="Netfx3x64FullVersion AND (Netfx3x64FullVersion &gt;= v3.5.30729.1)">
+        <ExitCode Value ="3010" Behavior="forceReboot" />
+      </ExePackage>
+
+      <ExePackage Id="Netfx40"
+        After="Netfx35"
+        Cache="no"
+        Compressed="yes"
+        PerMachine="no"
+        Permanent="yes"
+        Vital="yes"
+        Name="Redist\dotNetFx40_Full_x86_x64.exe"
+        DisplayName="Configuring .NET Framework 4.0"
+        SourceFile="Tools\dotNetFx40_Full_x86_x64.exe"
+        InstallCommand="/q /norestart /lang:ENU"
+        RepairCommand="/q /norestart /lang:ENU"
+        InstallCondition='(NOT Netfx4x64FullVersion AND WINEDITION = "Client"  AND VersionNT=601) OR (Netfx4x64FullVersion &lt; v4.0 AND WINEDITION = "Client"  AND VersionNT=601)'
+        DetectCondition="Netfx4x64FullVersion AND (Netfx4x64FullVersion &gt;= v4.0)">
+        <ExitCode Value ="3010" Behavior="forceReboot" />
+      </ExePackage>
+
+      <ExePackage Id="Netfx45"
+       After="Netfx40"
+       Cache="no"
+       Compressed="yes"
+       PerMachine="no"
+       Permanent="yes"
+       Vital="yes"
+       Name="Redist\dotnetfx45_full_x86_x64.exe"
+       DisplayName="Configuring .NET Framework 4.5"
+       SourceFile="Tools\dotnetfx45_full_x86_x64.exe"
+       InstallCommand="/q /norestart /lang:ENU"
+       RepairCommand="/q /norestart /lang:ENU"
+       InstallCondition='(NOT Netfx4x64FullVersion AND WINEDITION = "Client"  AND VersionNT=601) OR (Netfx4x64FullVersion &lt; v4.0 AND WINEDITION = "Client"  AND VersionNT=601)'
+       DetectCondition="Netfx4x64FullVersion AND (Netfx4x64FullVersion &gt;= v4.0)">
+        <ExitCode Value ="3010" Behavior="forceReboot" />
+      </ExePackage>
+    </PackageGroup>
+    <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+  </Fragment>
+
+</Wix>

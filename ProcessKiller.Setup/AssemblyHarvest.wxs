@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?include Variables.wxi?>
+    <Fragment>
+        <DirectoryRef Id="ExecutableFolder" />
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="ProcessKillerProductComponents">
+            <Component Id="cmpBBEE1EA349AEA75DA17B557C0C8C87A2" Directory="ExecutableFolder" Guid="{D03969DE-0DA1-4286-A8F5-696D4ACA2B48}">
+                <File Id="filDD5F5DFA57DADFD7816CFD4194AB312B" KeyPath="yes" Source="$(var.ProcessKillerSetupFiles)\NLog.config" />
+            </Component>
+            <Component Id="cmpB9AB395E984D34B25FEC42C291F40C2E" Directory="ExecutableFolder" Guid="{7F5941D8-BE46-4ACA-B748-50F2E239F19C}">
+                <File Id="filBD09917B901B85CDEDAB0E1137B451D1" KeyPath="yes" Source="$(var.ProcessKillerSetupFiles)\NLog.dll" />
+            </Component>
+            <Component Id="cmpFBF511D4C061E4EEE4F59A472B0A155D" Directory="ExecutableFolder" Guid="{E86B26EF-E489-485A-963F-0BEFF97FAA49}">
+                <File Id="fil677FB37827CFE8FCEA076F6EA3001141" KeyPath="yes" Source="$(var.ProcessKillerSetupFiles)\NLog.xml" />
+            </Component>
+            <Component Id="cmpCC108AF2D3FEF0FB9F013BDEE596F7FD" Directory="ExecutableFolder" Guid="{39028878-C315-4C82-8657-621B3776F6A8}">
+                <File Id="fil0F644159A70309CF6F49DC1DBEA6C3B0" KeyPath="yes" Source="$(var.ProcessKillerSetupFiles)\ProcessKillerConsoleApp.exe" />
+            </Component>
+            <Component Id="cmp980352B976B5082D5C032B63CBAF32A9" Directory="ExecutableFolder" Guid="{5036FD83-D601-4C8E-A019-816999FDD54D}">
+                <File Id="fil7F910637E34BF9F506DA4CCEEE127176" KeyPath="yes" Source="$(var.ProcessKillerSetupFiles)\ProcessKillerConsoleApp.exe.config" />
+            </Component>
+            <Component Id="cmp9BE04E7708A2F37EE7368FC42E12CD24" Directory="ExecutableFolder" Guid="{ED9FB025-7A6E-4D50-BBEB-37ACEA88E3C0}">
+                <File Id="filC22C0F1735191BF5E07F9D612F92E730" KeyPath="yes" Source="$(var.ProcessKillerSetupFiles)\ProcessKillerConsoleApp.pdb" />
+            </Component>
+            <Component Id="cmpA910D350BB5696938BAC1A0F73B490CC" Directory="ExecutableFolder" Guid="{7DAFCABB-75DD-43CB-9110-F60B75AC8A49}">
+                <File Id="fil2BDA9E0E0D15DD9D3ED3FA4B1E305F80" KeyPath="yes" Source="$(var.ProcessKillerSetupFiles)\ProcessKillerConsoleApp.vshost.exe" />
+            </Component>
+            <Component Id="cmp1A47D3CD0BD441133F75ED51D7C3B174" Directory="ExecutableFolder" Guid="{04759C80-6B36-4548-97BA-4472A36C9443}">
+                <File Id="fil03AE6A97C370075F13E39AAEC791B8B3" KeyPath="yes" Source="$(var.ProcessKillerSetupFiles)\ProcessKillerConsoleApp.vshost.exe.config" />
+            </Component>
+            <Component Id="cmp6BF80BD979E97DAA7997897A2E38A2F2" Directory="ExecutableFolder" Guid="{FFB0486D-4A7B-4F1A-B401-796E913ACC07}">
+                <File Id="fil9C4DF3C418624FA6BC2EDBDBFD87BB22" KeyPath="yes" Source="$(var.ProcessKillerSetupFiles)\ProcessKillerConsoleApp.vshost.exe.manifest" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Wix>

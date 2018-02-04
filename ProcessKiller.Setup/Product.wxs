@@ -11,6 +11,7 @@
 		<Feature Id="ProcessKillerProductFeature" Title="ProcessKiller.Setup" Level="1">
 			<ComponentGroupRef Id="ProcessKillerProductComponents" />
       <ComponentRef Id="ApplicationShortcuts"/>
+      <ComponentRef Id="ApplicationShortcut"/>
 		</Feature>
 	</Product>
 
@@ -23,6 +24,7 @@
           </Directory>
         </Directory>
       </Directory>
+      <Directory Id="StartupFolder" />
     </Directory>
   </Fragment>
 
@@ -31,6 +33,20 @@
       <Component Id="ApplicationShortcuts" Guid="393F9DAB-F21F-45F1-B4B6-E6C9B436AA96">
         <RegistryValue Root="HKCU" Key="Software\Microsoft\ProcessKillerExecutable" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
         <RemoveFolder Id="ExecutableFolder" On="uninstall"/>
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+
+  <Fragment>
+    <DirectoryRef Id="StartupFolder">
+      <Component Id="ApplicationShortcut" Guid="2304611B-B05C-4F8F-8A70-2C854475CC8B"> 
+        <Shortcut Id="ApplicationStartupShortcut"
+                Name="ProcessKiller"
+                Description="ProcessKiller"
+                Target="[ExecutableFolder]ProcessKiller.exe"
+                WorkingDirectory="ExecutableFolder"
+                 />
+        <RegistryValue Root="HKCU" Key="Software\Microsoft\ProcessKiller" Name="installed" Type="integer" Value="1" KeyPath="yes"/> 
       </Component>
     </DirectoryRef>
   </Fragment>

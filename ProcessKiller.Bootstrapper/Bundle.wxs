@@ -40,7 +40,7 @@
 
       <MsiPackage Id="ProcessKiller.App" SourceFile="..\ProcessKiller.Setup\bin\Release\ProcessKiller.Setup.msi" DisplayName="Configuring ProcessKiller Application"  Compressed="yes" />
 
-      <MsiPackage Id="ProcessKiller.Svc" SourceFile="..\ProcessKiller.Service.Setup\bin\Release\ProcessKiller.Service.Setup.msi" DisplayName="Configuring ProcessKiller Window Service" Compressed="yes" After="ProcessKiller.App" />
+      <!--<MsiPackage Id="ProcessKiller.Svc" SourceFile="..\ProcessKiller.Service.Setup\bin\Release\ProcessKiller.Service.Setup.msi" DisplayName="Configuring ProcessKiller Window Service" Compressed="yes" After="ProcessKiller.App" />-->
 
     </Chain>
   </Bundle>

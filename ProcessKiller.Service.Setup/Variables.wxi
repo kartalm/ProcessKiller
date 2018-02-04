@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Include>
-  <!-- Variable below holds the the executable file path that mapped to windows service -->
-  <!--<?include Variables.wxi?>-->
-  <?define SourceDir = "C:\Program Files (x86)\ProcessKiller\ProcessKillerExecutable" ?>
-</Include>

@@ -1,42 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-  <?include Variables.wxi?>
     <Fragment>
         <DirectoryRef Id="ExecutableFolder" />
     </Fragment>
     <Fragment>
         <ComponentGroup Id="ProcessKillerProductComponents">
-            <Component Id="cmpBBEE1EA349AEA75DA17B557C0C8C87A2" Directory="ExecutableFolder" Guid="{E5E6C192-0C94-4F6B-A9E6-4D3B5884210A}">
+            <Component Id="cmpBBEE1EA349AEA75DA17B557C0C8C87A2" Directory="ExecutableFolder" Guid="{2437AD94-2A41-4CBC-8B1D-1F3DA20B4023}">
                 <File Id="filDD5F5DFA57DADFD7816CFD4194AB312B" KeyPath="yes" Source="$(var.ProcessKillerSetupFiles)\NLog.config" />
             </Component>
-            <Component Id="cmpB9AB395E984D34B25FEC42C291F40C2E" Directory="ExecutableFolder" Guid="{0BF2DF11-DAF4-4C9B-BF29-080B6A7292DD}">
+            <Component Id="cmpB9AB395E984D34B25FEC42C291F40C2E" Directory="ExecutableFolder" Guid="{9DFE3A3A-5F9F-4026-8494-91367282C134}">
                 <File Id="filBD09917B901B85CDEDAB0E1137B451D1" KeyPath="yes" Source="$(var.ProcessKillerSetupFiles)\NLog.dll" />
             </Component>
-            <Component Id="cmpFBF511D4C061E4EEE4F59A472B0A155D" Directory="ExecutableFolder" Guid="{2D53B7C5-05E9-4FFE-A768-D7112F5DB4C8}">
+            <Component Id="cmpFBF511D4C061E4EEE4F59A472B0A155D" Directory="ExecutableFolder" Guid="{172F80E9-F3E5-48D6-893F-328F8DB08B51}">
                 <File Id="fil677FB37827CFE8FCEA076F6EA3001141" KeyPath="yes" Source="$(var.ProcessKillerSetupFiles)\NLog.xml" />
             </Component>
-            <Component Id="cmpEE232479AC8CC78BB71581C770A13686" Directory="ExecutableFolder" Guid="{2368509A-CF71-4340-934D-C3C266F1DD87}">
+            <Component Id="cmpEE232479AC8CC78BB71581C770A13686" Directory="ExecutableFolder" Guid="{76F6CF82-80B4-4A3D-94AD-BE2A24151422}">
                 <File Id="filA8E4C2164F64F201E3F66258D0950DEE" KeyPath="yes" Source="$(var.ProcessKillerSetupFiles)\NLog.xsd" />
             </Component>
-            <Component Id="cmp850B2EA02DB581A81DD6F25B0CD72BB7" Directory="ExecutableFolder" Guid="{42B3C550-559C-489C-BF6E-38B31E9235B3}">
+            <Component Id="cmp850B2EA02DB581A81DD6F25B0CD72BB7" Directory="ExecutableFolder" Guid="{8170A557-D01F-4E31-9324-7FDE299C8009}">
                 <File Id="fil67C24657679F877AB1BD565D28AE0757" KeyPath="yes" Source="$(var.ProcessKillerSetupFiles)\ProcessKiller.exe" />
             </Component>
-            <Component Id="cmp54B3DB195735982216761D28AFEF2002" Directory="ExecutableFolder" Guid="{B207B402-942D-46FF-AE38-7D4EF9C273B8}">
+            <Component Id="cmp54B3DB195735982216761D28AFEF2002" Directory="ExecutableFolder" Guid="{1DF06C56-A4FC-45A6-B867-BC236AC6506E}">
                 <File Id="fil7A7261DF3241580FFCB4C68669735B8E" KeyPath="yes" Source="$(var.ProcessKillerSetupFiles)\ProcessKiller.exe.config" />
             </Component>
-            <Component Id="cmpED2C49A0060644F289BCBDD7396F3AD3" Directory="ExecutableFolder" Guid="{30886B7B-8836-4DF3-9515-07E0D1DA466D}">
+            <Component Id="cmpED2C49A0060644F289BCBDD7396F3AD3" Directory="ExecutableFolder" Guid="{B49F60F4-F246-4CEF-A2DD-FCF0C3387A94}">
                 <File Id="fil011C9BA1986541B9B6263DA767633BA1" KeyPath="yes" Source="$(var.ProcessKillerSetupFiles)\ProcessKiller.pdb" />
             </Component>
-            <Component Id="cmpC9DF10A305DFD8C1F49BE85E705CA17A" Directory="ExecutableFolder" Guid="{3EAE36EB-F373-41C9-A279-8AE6FE09A2F2}">
+            <Component Id="cmpC9DF10A305DFD8C1F49BE85E705CA17A" Directory="ExecutableFolder" Guid="{0447BEAE-62EF-4806-87DC-0C847AB8AF78}">
                 <File Id="fil17A0862160EEB2AAD66EB1403CD072F7" KeyPath="yes" Source="$(var.ProcessKillerSetupFiles)\ProcessKiller.vshost.exe" />
             </Component>
-            <Component Id="cmp16D6ACD5BEBEAEDE35D4954C424BAA83" Directory="ExecutableFolder" Guid="{F7094038-4B5D-4954-B130-DFF813DFDB79}">
+            <Component Id="cmp16D6ACD5BEBEAEDE35D4954C424BAA83" Directory="ExecutableFolder" Guid="{404CB9C1-4C5F-4575-B2AA-CC85AAA78319}">
                 <File Id="fil02B4B5EF5516BFF96A21C48566E06F71" KeyPath="yes" Source="$(var.ProcessKillerSetupFiles)\ProcessKiller.vshost.exe.config" />
             </Component>
-            <Component Id="cmp190F60E354057B2A1D31E2EA0E66C06C" Directory="ExecutableFolder" Guid="{62CC14AC-98D5-410D-A1E0-62C924FE42D0}">
+            <Component Id="cmp190F60E354057B2A1D31E2EA0E66C06C" Directory="ExecutableFolder" Guid="{858E42D1-670C-4A6E-856A-6B2194019251}">
                 <File Id="fil7B0F7F7518A1E7A67DD6CC616F841D50" KeyPath="yes" Source="$(var.ProcessKillerSetupFiles)\ProcessKiller.vshost.exe.manifest" />
             </Component>
-            <Component Id="cmpC77559F51196F85F85FF2C2904114991" Directory="ExecutableFolder" Guid="{DB0A88E7-738B-4D91-8FA9-ECAA56F9F39D}">
+            <Component Id="cmpC77559F51196F85F85FF2C2904114991" Directory="ExecutableFolder" Guid="{94EE6205-75D4-4A27-AEF9-A18E1EF5766E}">
                 <File Id="fil1F5D25E8A2E88F78D0864ADF85862671" KeyPath="yes" Source="$(var.ProcessKillerSetupFiles)\UygulamaListesi.txt" />
             </Component>
         </ComponentGroup>

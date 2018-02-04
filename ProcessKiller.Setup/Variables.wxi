@@ -2,5 +2,5 @@
 <Include>
   <!-- Variable below determines the path of files to be harvested. Copy below code to generated file after harvesting before compiling -->
   <!--<?include Variables.wxi?>-->
-  <?define ProcessKillerSetupFiles = "D:\Personal.Backup.Data\Projects\Github\OS\ProcessKiller\ProcessKillerConsoleApp\bin\Release\" ?>
+  <?define ProcessKillerSetupFiles = "D:\Personal.Backup.Data\Projects\Github\OS\ProcessKiller\ProcessKiller\bin\Release\" ?>
 </Include>
